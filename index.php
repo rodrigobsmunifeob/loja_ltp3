@@ -1,1 +1,4 @@
-Olá mundo!
+<?php
+echo "Olá mundo!";
+
+?>
