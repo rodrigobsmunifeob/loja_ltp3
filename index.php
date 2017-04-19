@@ -32,6 +32,7 @@
 
   <body>
 
+<!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -41,14 +42,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Loja LTP3</a>
+          <a class="navbar-brand" href="#">LOJA LTP3</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="#">Categorias</a></li>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Produtos</a></li>
             <li><a href="#">Carrinho</a></li>
-            <li><a href="#">Finalizar Compra</a></li>
             <li><a href="#">Contato</a></li>
-            <!--  
+            <!-- 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nome do Cliente <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -60,8 +62,6 @@
             </li>
              -->
           </ul>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control">
@@ -71,18 +71,20 @@
             </div>
             <button type="submit" class="btn btn-success">Entrar</button>
           </form>
-        </div><!--/.navbar-collapse -->
+        </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
+        <h1>PROMOÇÃO BLACKFRIDAY</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
+    
+    
 
     <div class="container">
       <!-- Example row of columns -->
