@@ -34,14 +34,20 @@
 </div>
 
 <div class="container">
-
+	
+		
+	<?php
+	$categorias = mysqli_query ( $conexao, "SELECT * FROM categorias" );
+	while ( $categoria = mysqli_fetch_array ( $categorias ) ) :
+	?>
 	<div class="row">
 
-		<h2>Produtos em destaque</h2>
+		<h2><?php echo $categoria["categoria"]; ?></h2>
 		<hr>
-	<?php
-	$produtos = mysqli_query ( $conexao, "SELECT * FROM produtos ORDER BY RAND() LIMIT 8;" );
-	while ( $produto = mysqli_fetch_array ( $produtos ) ) :
+		
+		<?php
+		$produtos = mysqli_query ( $conexao, "SELECT * FROM produtos WHERE id_categoria=".$categoria["id_categoria"]." ORDER BY RAND();" );
+		while ( $produto = mysqli_fetch_array ( $produtos ) ) :
 		?>
 		<div class="col-sm-6 col-md-3">
 			<div class="thumbnail">
@@ -58,10 +64,10 @@
 				</div>
 			</div>
 		</div>
-		<?php endwhile; ?>
-		
+		<?php endwhile; ?>		
 		
 	</div>
+	<?php endwhile; ?>	
 
 </div>
 
