@@ -13,6 +13,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/carousel.js"></script>
 	
 	<title>Loja LTP3</title>
 
@@ -21,6 +22,8 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/jumbotron.css" rel="stylesheet">
+    
+    <link href="assets/css/loja_base.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,7 +49,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Categorias</a></li>
             <li><a href="#">Carrinho</a></li>
             <li><a href="#">Contato</a></li>
             <!-- 
@@ -73,3 +76,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <?php 
+    	require_once 'conexao.php';
+    ?>

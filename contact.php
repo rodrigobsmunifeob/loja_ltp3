@@ -44,7 +44,7 @@ session_start()
                 <option value="Espírito Santo" >ES</option>
                 <option value="Goiás" >GO</option>
                 <option value="Maranhão" >MA</option>
-                <option value="Mato Grosso" >MT</option>
+                <option value="Mato Grosso" >MT</option>   
                 <option value="Mato Grosso do Sul" >MS</option>
                 <option value="Minas Gerais" >MG</option>
                 <option value="Pará" >PA</option>

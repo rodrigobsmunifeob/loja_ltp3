@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+.carousel-home .item {
+	min-height: 315px;
+	width: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center !important;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.thumbnail .titulo {
+	float:left;
+	margin-top:10px;
+}
+.thumbnail .preco {
+	color: #a00;
+	font-weight: bold;
+	margin-top:10px;
+}
