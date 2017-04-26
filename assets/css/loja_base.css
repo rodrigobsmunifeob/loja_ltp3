@@ -11,3 +11,12 @@
 	-o-background-size: cover;
 	background-size: cover;
 }
+
+.thumbnail .titulo {
+	float:left;
+	margin-top:10px;
+}
+.thumbnail .preco {
+	float:right;
+	margin-top:10px;
+}
