@@ -38,55 +38,82 @@
 
                 <tbody>
 
-                <tr>
-                    <td>
-                        <div class="thumbnail">
-                            <img style="max-height: 150px; width: 150px !important;" src="assets/produtos/1.png">
-                        </div>
-                    </td>
+                <?php
 
-                <td>
-                    Nome do Produto
-                </td>
-                <td>
-                    1
-                </td>
-                <td>
-                    R$ 1,00
-                </td>
-                <td>
-                    R$ 1,00
-                </td>
-                    <td>
-                        <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
-                    </td>
-                </tr>
+                if (isset($_SESSION['carrinho'])) {
 
-                <!-- TOTAL -->
+                    foreach ($_SESSION['carrinho'] as $id => $produto) {
 
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        <p align="right"><b>Total Pedido</b></p>
-                    </td>
-                    <td>
-                        <b>R$ 1,00</b>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+                    ?>
+
+                    <tr>
+                        <td>
+                            <div class="thumbnail">
+                                <img style="max-height: 150px; width: 150px !important;" src="assets/produtos/<?php echo $id ?>.png">
+                            </div>
+                        </td>
+
+                        <td>
+                            <?php echo $produto["nome"]; ?>
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            R$ 1,00
+                        </td>
+                        <td>
+                            R$ 1,00
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                        </td>
+                    </tr>
+
+                    <?php } ?>
+
+                    <!-- TOTAL -->
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <p align="right"><b>Total Pedido</b></p>
+                        </td>
+                        <td>
+                            <b>R$ 1,00</b>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+
+
+                <?php } else { ?>
+
+                    <tr>
+                        <td colspan="6" align="center">Carrinho vazio.</td>
+                    </tr>
+
+
+                <?php } ?>
 
 
                 </tbody>
 
             </table>
 
-            <a href="finalizar.php" class="btn btn-success pull-right btn-lg"><i class="glyphicon glyphicon-shopping-cart"></i> Finalizar Compra</a>
+            <?php
+
+            if (isset($_SESSION['carrinho'])) {
+
+                ?>
+                <a href="finalizar.php" class="btn btn-success pull-right btn-lg"><i
+                            class="glyphicon glyphicon-shopping-cart"></i> Finalizar Compra</a>
+            <?php } ?>
 
 
         </div>
