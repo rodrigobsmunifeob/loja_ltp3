@@ -76,3 +76,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <?php 
+    	require_once 'conexao.php';
+    ?>
