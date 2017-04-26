@@ -38,127 +38,29 @@
 	<div class="row">
 
 		<h2>Produtos em destaque</h2>
-
+		<hr>
+	<?php
+	$produtos = mysqli_query ( $conexao, "SELECT * FROM produtos ORDER BY RAND() LIMIT 8;" );
+	while ( $produto = mysqli_fetch_array ( $produtos ) ) :
+		?>
 		<div class="col-sm-6 col-md-3">
 			<div class="thumbnail">
-				<img src="assets/produtos/1.png">
+				<img src="assets/produtos/<?php echo $produto['id_produto']; ?>.png">
 				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
+					<h3 class="titulo"><?php echo substr($produto['nome'], 0, 30); ?>...</h3>
+					<p class="preco">R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
 					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
+						<a href="produto.php?id=<?php echo $produto['id_produto']; ?>"
+							class="btn btn-primary btn-danger" role="button"><span
 							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 							Comprar</a>
 					</p>
 				</div>
 			</div>
 		</div>
-
-		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<img src="assets/produtos/2.png">
-				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
-					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
-							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							Comprar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<img src="assets/produtos/3.png">
-				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
-					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
-							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							Comprar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<img src="assets/produtos/4.png">
-				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
-					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
-							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							Comprar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<img src="assets/produtos/5.png">
-				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
-					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
-							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							Comprar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<img src="assets/produtos/6.png">
-				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
-					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
-							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							Comprar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<img src="assets/produtos/7.jpg">
-				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
-					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
-							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							Comprar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<img src="assets/produtos/8.png">
-				<div class="caption">
-					<h3 class="titulo">Produto</h3>
-					<p class="preco">Preço</p>
-					<p style="clear: both;">
-						<a href="#" class="btn btn-primary" role="button"><span
-							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							Comprar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
+		<?php endwhile; ?>
+		
+		
 	</div>
 
 </div>
