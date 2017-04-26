@@ -1,6 +1,5 @@
 <?php include("header.php"); ?>
 
-
 <div id="myCarousel" class="carousel slide carousel-home"
 	data-ride="carousel">
 	<!-- Indicators -->
