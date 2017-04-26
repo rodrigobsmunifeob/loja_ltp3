@@ -50,7 +50,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#">Categorias</a></li>
-            <li><a href="carrinho_compra.php">Carrinho</a></li>
+            <li><a href="#">Carrinho</a></li>
             <li><a href="#">Contato</a></li>
             <!-- 
             <li class="dropdown">
@@ -76,3 +76,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <?php 
+    	require_once 'conexao.php';
+    ?>

@@ -1,7 +1,7 @@
 <?php include("header.php"); ?>
 
-
-<div id="myCarousel" class="carousel slide carousel-home" data-ride="carousel">
+<div id="myCarousel" class="carousel slide carousel-home"
+	data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -34,55 +34,35 @@
 </div>
 
 <div class="container">
-	
+
 	<div class="row">
-	
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/1.png">
-	      <div class="caption">
-	        <h3>Thumbnail label</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="..." alt="...">
-	      <div class="caption">
-	        <h3>Thumbnail label</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="..." alt="...">
-	      <div class="caption">
-	        <h3>Thumbnail label</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="..." alt="...">
-	      <div class="caption">
-	        <h3>Thumbnail label</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
+
+		<h2>Produtos em destaque</h2>
+		<hr>
+	<?php
+	$produtos = mysqli_query ( $conexao, "SELECT * FROM produtos ORDER BY RAND() LIMIT 8;" );
+	while ( $produto = mysqli_fetch_array ( $produtos ) ) :
+		?>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/<?php echo $produto['id_produto']; ?>.png">
+				<div class="caption">
+					<h3 class="titulo"><?php echo substr($produto['nome'], 0, 30); ?>...</h3>
+					<p class="preco">R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
+					<p style="clear: both;">
+						<a href="produto.php?id=<?php echo $produto['id_produto']; ?>"
+							class="btn btn-primary btn-danger" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<?php endwhile; ?>
+		
+		
 	</div>
-	
+
 </div>
 
 <?php include("footer.php"); ?>
