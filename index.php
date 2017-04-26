@@ -1,7 +1,8 @@
 <?php include("header.php"); ?>
 
 
-<div id="myCarousel" class="carousel slide carousel-home" data-ride="carousel">
+<div id="myCarousel" class="carousel slide carousel-home"
+	data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -34,101 +35,133 @@
 </div>
 
 <div class="container">
-	
+
 	<div class="row">
-	
-	<h2>Produtos em destaque</h2>
-	
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/1.png">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/2.png">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/3.png">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/4.png">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/5.png">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/6.png">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/7.jpg">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
-	      <img src="assets/produtos/8.png">
-	      <div class="caption">
-	        <h3 class="titulo">Produto</h3>
-	        <p class="preco">Preço</p>
-	        <p style="clear: both;"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Comprar</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  
+
+		<h2>Produtos em destaque</h2>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/1.png">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/2.png">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/3.png">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/4.png">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/5.png">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/6.png">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/7.jpg">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="assets/produtos/8.png">
+				<div class="caption">
+					<h3 class="titulo">Produto</h3>
+					<p class="preco">Preço</p>
+					<p style="clear: both;">
+						<a href="#" class="btn btn-primary" role="button"><span
+							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+							Comprar</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
 	</div>
-	
+
 </div>
 
 <?php include("footer.php"); ?>
