@@ -1,32 +1,88 @@
 <?php include("header.php"); ?>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>PROMOÇÃO BLACKFRIDAY</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
-    
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+
+<div id="myCarousel" class="carousel slide carousel-home" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+	</ol>
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+		<div style="background: url('assets/banners/1.png');"
+			class="item active"></div>
+
+		<div style="background: url('assets/banners/2.png');" class="item"></div>
+
+		<div style="background: url('assets/banners/3.png');" class="item"></div>
+
+		<div style="background: url('assets/banners/4.png');" class="item"></div>
+	</div>
+
+	<!-- Left and right controls -->
+	<a class="left carousel-control" href="#myCarousel" role="button"
+		data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
+		aria-hidden="true"></span> <span class="sr-only">Previous</span>
+	</a> <a class="right carousel-control" href="#myCarousel" role="button"
+		data-slide="next"> <span class="glyphicon glyphicon-chevron-right"
+		aria-hidden="true"></span> <span class="sr-only">Next</span>
+	</a>
+
+</div>
+
+<div class="container">
+	
+	<div class="row">
+	
+	  <div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	      <img src="assets/produtos/1.png">
+	      <div class="caption">
+	        <h3>Thumbnail label</h3>
+	        <p>...</p>
+	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	      <img src="..." alt="...">
+	      <div class="caption">
+	        <h3>Thumbnail label</h3>
+	        <p>...</p>
+	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	      <img src="..." alt="...">
+	      <div class="caption">
+	        <h3>Thumbnail label</h3>
+	        <p>...</p>
+	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	      <img src="..." alt="...">
+	      <div class="caption">
+	        <h3>Thumbnail label</h3>
+	        <p>...</p>
+	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	      </div>
+	    </div>
+	  </div>
+	  
+	</div>
+	
+</div>
 
 <?php include("footer.php"); ?>
