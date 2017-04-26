@@ -10,7 +10,8 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 article,
 aside,
@@ -176,6 +177,7 @@ legend {
 textarea {
   overflow: auto;
 }
+
 optgroup {
   font-weight: bold;
 }
