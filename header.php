@@ -44,14 +44,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">LOJA LTP3</a>
+          <a class="navbar-brand" href="index.php">LOJA LTP3</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Categorias</a></li>
-            <li><a href="#">Carrinho</a></li>
-            <li><a href="contact.php">Contato</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "index.php")!==false) echo 'class="active"'; ?>><a href="index.php">Home</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "categorias.php")!==false) echo 'class="active"'; ?>><a href="categorias.php">Categorias</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "carrinho.php")!==false) echo 'class="active"'; ?>><a href="carrinho.php">Carrinho</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "contact.php")!==false) echo 'class="active"'; ?>><a href="contact.php">Contato</a></li>
             <!-- 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nome do Cliente <span class="caret"></span></a>
