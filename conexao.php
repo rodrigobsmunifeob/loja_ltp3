@@ -2,7 +2,7 @@
 
  /* Realiza conexão com MySQL */
 
-	$host = "176.16.1.9";
+	$host = "192.168.7.59";
 	$user = "ltp3";
 	$pwd = "ltp3";
 	$bd = "loja_ltp3";
