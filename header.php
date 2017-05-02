@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,19 +65,56 @@
             </li>
              -->
           </ul>
-          <form class="navbar-form navbar-right">
+        <?php if (!isset($_SESSION['nome']) || empty($_SESSION['nome'])) {?>
+          <form class="navbar-form navbar-right" action="" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" name="email" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Senha" class="form-control">
+              <input type="password" name="password" placeholder="Senha" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Entrar</button>
           </form>
+        <?php} else{ ?>
+            <div class="form-group">
+                <p>Olá <?php echo $_SESSION['nome']; ?> &nbsp; <a href="logout.php">Sair</a> </p>
+            </div>
+
+        <?php  ?>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     
     <?php 
-    	require_once 'conexao.php';
+    	include 'conexao.php';
+
+
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        $email = mysqli_real_escape_string($conexao,$_POST['email']);
+        $password = mysqli_real_escape_string($conexao,md5($_POST['password']));
+
+        $sql = "SELECT * FROM CLIENTE WHERE email ='".$email."' AND senha ='".$password."' ;";
+
+        $login = mysqli_query($conexao, $sql);
+
+        // Se encontrou o login/senha, loga...
+        if (mysqli_num_rows($login) > 0) {
+            $_SESSION['nome']=$login['nome'];
+
+
+            // Redireciona para página
+            header("Location: index.php");
+
+        } else {
+
+            header("Location: ../View/Dashboard_MyInner.php");
+        }
+    }else{
+        header("Location: index.php");
+
+    }
+
+
     ?>
