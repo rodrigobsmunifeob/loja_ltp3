@@ -6,7 +6,6 @@
  * Time: 22:31
  */
 include("header.php");
-session_start()
 ?>
 
 
