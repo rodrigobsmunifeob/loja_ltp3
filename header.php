@@ -11,7 +11,7 @@
         // Se encontrou o login/senha, loga...
         if (mysqli_num_rows($login) > 0) {
             $login = mysqli_fetch_array($login);
-            $_SESSION['nome'] = $login['nome'];
+            $_SESSION = $login;
         } else {
             $login_incorreto = true;
         }
