@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,14 +45,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">LOJA LTP3</a>
+          <a class="navbar-brand" href="index.php">LOJA LTP3</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Categorias</a></li>
-            <li><a href="#">Carrinho</a></li>
-            <li><a href="#">Contato</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "index.php")!==false) echo 'class="active"'; ?>><a href="index.php">Home</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "categorias.php")!==false) echo 'class="active"'; ?>><a href="categorias.php">Categorias</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "carrinho.php")!==false) echo 'class="active"'; ?>><a href="carrinho.php">Carrinho</a></li>
+            <li <?php if (strpos($_SERVER['REQUEST_URI'], "contact.php")!==false) echo 'class="active"'; ?>><a href="contact.php">Contato</a></li>
             <!-- 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nome do Cliente <span class="caret"></span></a>
@@ -64,19 +65,56 @@
             </li>
              -->
           </ul>
-          <form class="navbar-form navbar-right">
+        <?php if (!isset($_SESSION['nome']) || empty($_SESSION['nome'])) {?>
+          <form class="navbar-form navbar-right" action="" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" name="email" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Senha" class="form-control">
+              <input type="password" name="password" placeholder="Senha" class="form-control">
             </div>
               <button type="submit" class="btn btn-success" value="Login" >Entrar</button>
           </form>
+        <?php} else{ ?>
+            <div class="form-group">
+                <p>Olá <?php echo $_SESSION['nome']; ?> &nbsp; <a href="logout.php">Sair</a> </p>
+            </div>
+
+        <?php  ?>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     
     <?php 
-    	require_once 'conexao.php';
+    	include 'conexao.php';
+
+
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        $email = mysqli_real_escape_string($conexao,$_POST['email']);
+        $password = mysqli_real_escape_string($conexao,md5($_POST['password']));
+
+        $sql = "SELECT * FROM CLIENTE WHERE email ='".$email."' AND senha ='".$password."' ;";
+
+        $login = mysqli_query($conexao, $sql);
+
+        // Se encontrou o login/senha, loga...
+        if (mysqli_num_rows($login) > 0) {
+            $_SESSION['nome']=$login['nome'];
+
+
+            // Redireciona para página
+            header("Location: index.php");
+
+        } else {
+
+            header("Location: ../View/Dashboard_MyInner.php");
+        }
+    }else{
+        header("Location: index.php");
+
+    }
+
+
     ?>

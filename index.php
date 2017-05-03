@@ -44,6 +44,7 @@
 
 		<h2><?php echo $categoria["categoria"]; ?></h2>
 		<hr>
+<<<<<<< HEAD
 	<?php
 	$produtos = mysqli_query ( $conexao, "SELECT * FROM produtos ORDER BY RAND() LIMIT 8;" );
 	while ( $produto = mysqli_fetch_array ( $produtos ) );
@@ -52,6 +53,13 @@
         <?php
 		$produtos = mysqli_query ( $conexao, "SELECT * FROM produtos WHERE id_categoria=".$categoria["id_categoria"]." ORDER BY RAND();" );
 		while ( $produto = mysqli_fetch_array ( $produtos ) );
+=======
+		
+		<?php
+		$produtos = mysqli_query ( $conexao, "SELECT * FROM produtos WHERE id_categoria=".$categoria["id_categoria"]." ORDER BY RAND();" );
+		while ( $produto = mysqli_fetch_array ( $produtos ) ) :
+
+>>>>>>> 1b64443f7aeff7ea006bae71227749715869de5a
 		?>
 		<div class="col-sm-6 col-md-3">
 			<div class="thumbnail">
