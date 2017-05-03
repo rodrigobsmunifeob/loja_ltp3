@@ -1,4 +1,23 @@
-<?php session_start(); ?>
+<?php
+    include 'conexao.php';
+
+    if (isset($_POST["email"]) && isset($_POST["password"])) {
+        $email = mysqli_real_escape_string($conexao, $_POST['email']);
+        $password = mysqli_real_escape_string($conexao, md5($_POST['password']));
+
+        $sql = "SELECT * FROM cliente WHERE email = '" . $email . "' AND senha = '" . $password . "';";
+
+        $login = mysqli_query($conexao, $sql);
+        // Se encontrou o login/senha, loga...
+        if (mysqli_num_rows($login) > 0) {
+            $login = mysqli_fetch_array($login);
+            $_SESSION['nome'] = $login['nome'];
+        } else {
+            $login_incorreto = true;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,9 +83,10 @@
               </ul>
             </li>
              -->
+
           </ul>
-        <?php if (!isset($_SESSION['nome']) || empty($_SESSION['nome'])) {?>
-          <form class="navbar-form navbar-right" action="" method="post">
+        <?php if (!isset($_SESSION['nome'])) { ?>
+          <form class="navbar-form navbar-right" action="index.php" method="post">
             <div class="form-group">
               <input type="text" name="email" placeholder="Email" class="form-control">
             </div>
@@ -75,46 +95,15 @@
             </div>
             <button type="submit" class="btn btn-success">Entrar</button>
           </form>
-        <?php} else{ ?>
-            <div class="form-group">
-                <p>Olá <?php echo $_SESSION['nome']; ?> &nbsp; <a href="logout.php">Sair</a> </p>
+        <?php } else { ?>
+            <div class="pull-right">
+                <p style="color: #fff; margin-top: 6px;">Olá <b><?php echo $_SESSION['nome']; ?></b>, seja bem vindo(a)! &nbsp; <a class="btn btn-success" href="logout.php">Sair</a></p>
             </div>
-
-        <?php  ?>
-        </div><!--/.nav-collapse -->
-      </div>
+        <?php  } ?>
+    </div><!--/.nav-collapse -->
+    </div>
     </nav>
-    
-    <?php 
-    	include 'conexao.php';
 
-
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-        $email = mysqli_real_escape_string($conexao,$_POST['email']);
-        $password = mysqli_real_escape_string($conexao,md5($_POST['password']));
-
-        $sql = "SELECT * FROM CLIENTE WHERE email ='".$email."' AND senha ='".$password."' ;";
-
-        $login = mysqli_query($conexao, $sql);
-
-        // Se encontrou o login/senha, loga...
-        if (mysqli_num_rows($login) > 0) {
-            $_SESSION['nome']=$login['nome'];
-
-
-            // Redireciona para página
-            header("Location: index.php");
-
-        } else {
-
-            header("Location: ../View/Dashboard_MyInner.php");
-        }
-    }else{
-        header("Location: index.php");
-
-    }
-
-
-    ?>
+    <?php if (isset($login_incorreto)) { ?>
+        <div style="margin:0;" class="alert alert-danger" role="alert"><b>Erro:</b> Login incorreto. Verifique seu e-mail e/ou senha.</div>
+    <?php } ?>
