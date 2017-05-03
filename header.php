@@ -93,7 +93,7 @@
             <div class="form-group">
               <input type="password" name="password" placeholder="Senha" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Entrar</button>
+              <button type="submit" class="btn btn-success" value="Login" >Entrar</button>
           </form>
         <?php } else { ?>
             <div class="pull-right">

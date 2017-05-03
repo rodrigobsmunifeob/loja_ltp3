@@ -1,4 +1,40 @@
-<?php include("header.php"); ?>
+<?php include("header.php");
+
+    // PROCESSA AÇÕES DO CARRINHO
+
+    if (isset($_REQUEST['acao'])) {
+
+        $acao = $_REQUEST['acao'];
+
+        if ($acao == 'remover') {
+
+            unset($_SESSION['carrinho'][$_REQUEST['id']]);
+
+        }
+
+
+        if ($acao == 'adicionar') {
+
+            $produto = mysqli_query($conexao, "SELECT * FROM produtos WHERE id_produto = ".$_REQUEST['id']);
+            $produto = mysqli_fetch_array($produto);
+
+            $id = $produto['id_produto'];
+
+            $_SESSION["carrinho"][$id] = array(
+                "foto" => "assets/produtos/".$id.".png",
+                "nome" => $produto['nome'],
+                "qnt" => $_REQUEST['qnt'],
+                "preco" => $produto['preco']
+            );
+
+        }
+
+    }
+
+
+?>
+
+
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="panel panel-default">
@@ -9,6 +45,16 @@
         </div>
 
         <div class="container">
+
+            <?php if (isset($_REQUEST['acao']) && $_REQUEST['acao']=='remover') { ?>
+            <div class="alert alert-success" role="alert">Produto removido do carrinho com sucesso.</div>
+            <?php } ?>
+
+
+            <?php if (isset($_REQUEST['acao']) && $_REQUEST['acao']=='adicionar') { ?>
+                <div class="alert alert-success" role="alert">Produto adicionado ao carrinho com sucesso.</div>
+            <?php } ?>
+
 
             <!-- Table -->
             <table class="table">
@@ -42,8 +88,9 @@
 
                 if (isset($_SESSION['carrinho'])) {
 
+                    $total_pedido = 0;
                     foreach ($_SESSION['carrinho'] as $id => $produto) {
-
+                        $total_pedido += $produto['preco'] * $produto['qnt'];
                     ?>
 
                     <tr>
@@ -57,17 +104,17 @@
                             <?php echo $produto["nome"]; ?>
                         </td>
                         <td>
-                            1
+                            <?php echo $produto['qnt']; ?>
                         </td>
                         <td>
-                            R$ 1,00
+                            R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?>
                         </td>
                         <td>
-                            R$ 1,00
+                            R$ <?php echo number_format($produto['preco'] * $produto['qnt'], 2, ',', '.'); ?>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
-                        </td>
+                            <a onclick="return confirm('Tem certeza de que deseja excluir?');" href="carrinho.php?acao=remover&id=<?php echo $id; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                        </td'>
                     </tr>
 
                     <?php } ?>
@@ -85,7 +132,7 @@
                             <p align="right"><b>Total Pedido</b></p>
                         </td>
                         <td>
-                            <b>R$ 1,00</b>
+                            <b>R$ <?php echo number_format($total_pedido, 2, ',', '.'); ?></b>
                         </td>
                         <td>
                         </td>
