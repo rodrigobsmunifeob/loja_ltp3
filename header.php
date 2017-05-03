@@ -71,7 +71,7 @@
             <div class="form-group">
               <input type="password" placeholder="Senha" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Entrar</button>
+              <button type="submit" class="btn btn-success" value="Login" >Entrar</button>
           </form>
         </div><!--/.nav-collapse -->
       </div>
