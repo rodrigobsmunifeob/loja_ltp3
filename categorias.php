@@ -36,9 +36,9 @@
                 <?php
 
                 if (isset($_POST['palavra'])) {
-                    $produtos = mysqli_query($conexao, "SELECT * FROM produtos WHERE nome LIKE '%".$_POST['palavra']."%' ORDER BY RAND() LIMIT 4;");
+                    $produtos = mysqli_query($conexao, "SELECT * FROM produtos WHERE nome LIKE '%".$_POST['palavra']."%' ORDER BY RAND() LIMIT 8;");
                 } else {
-                    $produtos = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY RAND() LIMIT 4;");
+                    $produtos = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY RAND() LIMIT 8;");
                 }
 
                 while ( $produto = mysqli_fetch_array ( $produtos ) ) :
