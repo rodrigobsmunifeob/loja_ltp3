@@ -5,23 +5,38 @@
  * Date: 18/04/17
  * Time: 22:31
  */
-include("header.php");
-if (isset($_POST[''])) {
-    $sql = "INSERT INTO cliente(nome, cpf, end_rua, end_bairro, end_complemento, end_cidade, end_estado,email,senha)
+require_once 'header.php';
+if (isset($_POST['name_user'])) {
+    $sql = "INSERT INTO cliente(nome, cpf, end_rua, end_bairro, end_complemento, end_cidade, end_estado, email, senha)
                 VALUES
                 
-                ('" . $_POST['name_user'] . "',  '" . $_POST['cpf_user'] . "', 
-                 '" . $_POST['rua_user'] . "', '" . $_POST['bairro_user'] . "',
-                 '" . $_POST['complemento_user'] . "','" . $_POST['cidade_user'] . "',
-                 '" . $_POST['estado_user'] . "','" . $_POST['email_user'] . "',
-                 '" . $_POST['senha_user'] . "',
-                );";
-
-    include 'conexao.php';
+                    ('" . mysqli_real_escape_string($conexao, $_POST['name_user']) . "', 
+                     '" .  mysqli_real_escape_string($conexao,$_POST['cpf_user']) . "', 
+                     '" .  mysqli_real_escape_string($conexao,$_POST['rua_user']) . "', 
+                     '" .  mysqli_real_escape_string($conexao,$_POST['bairro_user']) . "',
+                     '" .  mysqli_real_escape_string($conexao,$_POST['complemento_user']) . "',
+                     '" .  mysqli_real_escape_string($conexao,$_POST['cidade_user']) . "',
+                     '" .  mysqli_real_escape_string($conexao,$_POST['estado_user']) . "',
+                     '" .  mysqli_real_escape_string($conexao,$_POST['email_user']) . "',
+                     '" .  mysqli_real_escape_string($conexao,$_POST['senha_user']) . "'
+                 
+                 );";
 
     mysqli_query($conexao, $sql);
     mysqli_error($conexao);
+
+    $msg  = true;
+
+}else{
+     ?>
+        <div style="margin:0;" class="alert alert-danger text-center" role="alert"><b>Ops! Algum dado está errado ou já existe, verifique os campos.</b></div>
+    <?php
 }
+if (isset($msg)) { ?>
+    <div style="margin:0;" class="alert alert-success text-center" role="alert"><b>Parabéns! Cadastro realizado com sucesso!</b></div>
+<?php }
+
+
 ?>
 
 
