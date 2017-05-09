@@ -5,8 +5,9 @@
  * Date: 18/04/17
  * Time: 22:31
  */
+
 require_once 'header.php';
-if (isset($_POST['name_user'])) {
+ if (isset($_POST['name_user'])) {
     $sql = "INSERT INTO cliente(nome, cpf, end_rua, end_bairro, end_complemento, end_cidade, end_estado, email, senha)
                 VALUES
                 
