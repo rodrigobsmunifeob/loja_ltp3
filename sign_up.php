@@ -6,9 +6,23 @@
  * Time: 22:31
  */
 include("header.php");
-session_start()
-?>
+if (isset($_POST[''])) {
+    $sql = "INSERT INTO cliente(nome, cpf, end_rua, end_bairro, end_complemento, end_cidade, end_estado,email,senha)
+                VALUES
+                
+                ('" . $_POST['name_user'] . "',  '" . $_POST['cpf_user'] . "', 
+                 '" . $_POST['rua_user'] . "', '" . $_POST['bairro_user'] . "',
+                 '" . $_POST['complemento_user'] . "','" . $_POST['cidade_user'] . "',
+                 '" . $_POST['estado_user'] . "','" . $_POST['email_user'] . "',
+                 '" . $_POST['senha_user'] . "',
+                );";
 
+    include 'conexao.php';
+
+    mysqli_query($conexao, $sql);
+    mysqli_error($conexao);
+}
+?>
 
 
 <h1 class="text-center text-primary">Formulario de Cadastro</h1>
@@ -17,7 +31,7 @@ session_start()
 <fieldset><legend></legend>
 
 
-    <form action="../Controller/Register.php" method="post" class="form-signup-login w3-card-4 w3-container" name="formlogin">
+    <form action="sign_up.php" method="post" class="form-signup-login w3-card-4 w3-container" name="formlogin">
 
 
         <div class="form-group box-login">
@@ -75,17 +89,12 @@ session_start()
 
 
     </form>
+    <?php
 
+    ?>
 
-
-    </form>
     </div>
     </div>
-
-
-
-
-
 
 </fieldset>
 <?php include("footer.php"); ?>
