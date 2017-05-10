@@ -8,9 +8,9 @@
 
                 <h4>Busca</h4>
                 <hr>
-                <form action="categorias.php" method="post">
+                <form action="categorias.php" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="O que busca?" name="palavra" value="<?php if (isset($_POST['palavra'])) echo $_POST['palavra']; ?>">
+                        <input type="text" class="form-control" placeholder="O que busca?" name="palavra" value="<?php if (isset($_GET['palavra'])) echo $_GET['palavra']; ?>">
                         <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">OK</button>
                   </span>
@@ -21,11 +21,12 @@
                 <hr>
 
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="categorias.php?id=1">Computadores</a></li>
-                    <li class="active"><a href="categorias.php?id=2">Celulares</a></li>
-                    <li class="active"><a href="categorias.php?id=3">Televisores</a></li>
-                    <li class="active"><a href="categorias.php?id=4">Eletrodomésticos</a></li>
-                    <li class="active"><a href="categorias.php?id=5">Decoração</a></li>
+                    <?php
+                        $c = mysqli_query($conexao, "SELECT * FROM categorias ORDER BY categoria");
+                        while ($cat = mysqli_fetch_array($c)):
+                    ?>
+                    <li <?php if (isset($_GET['id']) && $cat['id_categoria'] == $_GET['id']) echo 'class="active"'; ?>><a href="categorias.php?id=<?php echo $cat['id_categoria'] ?>"><?php echo $cat['categoria'] ?></a></li>
+                    <?php endwhile; ?>
                 </ul>
             </div>
 
@@ -35,14 +36,32 @@
 
                 <?php
 
-                if (isset($_POST['palavra'])) {
-                    $produtos = mysqli_query($conexao, "SELECT * FROM produtos WHERE nome LIKE '%".$_POST['palavra']."%' ORDER BY RAND() LIMIT 8;");
-                } else {
-                    $produtos = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY RAND() LIMIT 8;");
+                if (isset($_GET['palavra'])) {
+                    $sql = "SELECT * FROM produtos WHERE nome LIKE '%" .$_GET['palavra']. "%' ORDER BY preco";
                 }
+                else if (isset($_GET['id'])){ //else if para selecionar por id ao apertar o botão
+                    $sql = "SELECT * FROM produtos WHERE id_categoria = ".$_GET['id']." ORDER BY preco";
+                } else {
+                    $sql = "SELECT * FROM produtos ORDER BY preco ";
+                }
+
+                // CODIGO DE PAGINACAO DOS RESULTADOS
+                $produtos_por_pagina = 4;
+
+                $pagina = isset($_GET["pag"]) ? ($_GET["pag"]) : 1;
+                $pagina = $pagina -1;
+
+                $inicio = $pagina * $produtos_por_pagina;
+
+                $produtos = mysqli_query($conexao, $sql);
+
+                $total_paginas = ceil(mysqli_num_rows($produtos) / $produtos_por_pagina);
+
+                $produtos = mysqli_query($conexao, $sql." LIMIT $inicio, $produtos_por_pagina");
 
                 while ( $produto = mysqli_fetch_array ( $produtos ) ) :
                     ?>
+
 
                     <div class="col-sm-6 col-md-3">
                         <div class="thumbnail">
@@ -59,34 +78,26 @@
                             </div>
                         </div>
                     </div>
+
                 <?php endwhile; ?>
                 <!-- PAGINADOR -->
 
                 <nav aria-label="Page navigation clearfix" style="clear: both;">
                     <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
-                        <li><a href="#">11</a></li>
-                        <li><a href="#">12</a></li>
 
+                        <?php if ($pagina > 0): ?>
                         <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
+                            <a href="categorias.php?pag=<?php echo ($pagina); ?>"> <span aria-hidden="true">&laquo;</span></a>
                         </li>
+                        <?php endif; ?>
+                        <?php for($i=0; $i<$total_paginas; $i++): ?>
+                        <li <?php if ($pagina == ($i)) echo 'class="active"' ?>><a href="categorias.php?pag=<?php echo ($i+1); ?>"><?php echo ($i+1); ?></a></li>
+                        <?php endfor; ?>
+                        <?php if ($pagina < ($total_paginas-1)): ?>
+                        <li>
+                            <a href="categorias.php?pag=<?php echo ($pagina+2); ?>"><span aria-hidden="true">&raquo;</span></a>
+                        </li>
+                        <?php endif; ?>
                     </ul>
                 </nav>
 

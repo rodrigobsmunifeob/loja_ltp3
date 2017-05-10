@@ -44,7 +44,7 @@
             <p></p>
         </div>
 
-        <div class="container">
+        <div class="container" style="overflow: hidden; padding-bottom: 20px;">
 
             <?php if (isset($_REQUEST['acao']) && $_REQUEST['acao']=='remover') { ?>
             <div class="alert alert-success" role="alert">Produto removido do carrinho com sucesso.</div>

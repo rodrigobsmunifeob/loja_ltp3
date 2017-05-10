@@ -11,7 +11,11 @@
         // Se encontrou o login/senha, loga...
         if (mysqli_num_rows($login) > 0) {
             $login = mysqli_fetch_array($login);
-            $_SESSION = $login;
+            $_SESSION = array_merge($_SESSION, $login);
+            
+            // redireciona, caso tenha parametro next_url
+            if (isset($_POST["next_url"])) header("Location: ".$_POST["next_url"]);
+            
         } else {
             $login_incorreto = true;
         }
