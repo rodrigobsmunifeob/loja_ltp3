@@ -21,3 +21,9 @@
 	font-weight: bold;
 	margin-top:10px;
 }
+.panel-heading .titulo {
+	font-size: 130%;
+}
+.titulo a {
+	color: #222;
+}
