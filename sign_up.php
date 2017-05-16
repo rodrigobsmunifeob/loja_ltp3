@@ -20,7 +20,7 @@ require_once 'header.php';
                      '" . mysqli_real_escape_string($conexao, $_POST['cidade_user']) . "',
                      '" . mysqli_real_escape_string($conexao, $_POST['estado_user']) . "',
                      '" . mysqli_real_escape_string($conexao, $_POST['email_user']) . "',
-                     '" . mysqli_real_escape_string($conexao, $_POST['senha_user']) . "'
+                     '" . mysqli_real_escape_string($conexao, md5($_POST['senha_user'])) . "'
                   );";
 
             mysqli_query($conexao, $sql); mysqli_error($conexao);
