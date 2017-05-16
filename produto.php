@@ -3,9 +3,8 @@ include("header.php");
 $produto = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM produtos WHERE id_produto=".$_REQUEST['id']));
 $categorias = mysqli_query ($conexao, 
 	"SELECT * FROM produtos WHERE id_categoria = ".$produto['id_categoria']." ORDER BY RAND() LIMIT 2;");
-$nome_categoria = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM categorias WHERE id_categoria = ".$produto['id_categoria']));
-
-$valor = number_format($produto['preco'], 2, ',', '.');
+$nome_categoria = mysqli_fetch_array(mysqli_query($conexao,
+	"SELECT * FROM categorias WHERE id_categoria = ".$produto['id_categoria']));
 ?>
 
 <div class="container">
@@ -69,8 +68,8 @@ $valor = number_format($produto['preco'], 2, ',', '.');
 						Ver Parcelas
 					</button>
 					
-					<p>Por R$ <span style="font-size:180%; font-weight:strong"><?=$valor?></span>
-					ou em <b>10x</b> de R$ <b><?=$valor/10?></b> </p>
+					<p>Por R$ <span style="font-size:180%; font-weight:strong"><?=$produto['preco']?></span>
+					ou em <b>10x</b> de R$ <b><?=$produto['preco']/10?></b> </p>
 					
 					<hr style="margin:10px 0">
 					
@@ -93,7 +92,7 @@ $valor = number_format($produto['preco'], 2, ',', '.');
 											<td><?=$i?>x</td>
 											<td><?=number_format($produto['preco']/$i, 2, ',', '.')?></td>
 											<td>sem juros</td>
-											<td>total <?=$valor?></td>
+											<td>total <?=$produto['preco']?></td>
 										</tr>
 									<?php endfor; ?>
 									</table>
