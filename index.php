@@ -42,7 +42,7 @@
 	?>
 	<div class="row">
 
-		<h2><?php echo $categoria["categoria"]; ?></h2>
+		<h3><?php echo $categoria["categoria"]; ?></h3>
 		<hr>
 
 	<?php
@@ -52,16 +52,18 @@
 		?>
 		<div class="col-sm-6 col-md-3">
 			<div class="thumbnail">
-				<img src="assets/produtos/<?php echo $produto['id_produto']; ?>.png">
+				<a href="produto.php?id=<?php echo $produto['id_produto']; ?>">
+					<img src="assets/produtos/<?php echo $produto['id_produto']; ?>.png">
+				</a>
 				<div class="caption">
-					<h3 class="titulo"><?php echo substr($produto['nome'], 0, 30); ?>...</h3>
-					<p class="preco">R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
-					<p style="clear: both;">
-						<a href="produto.php?id=<?php echo $produto['id_produto']; ?>"
-							class="btn btn-primary btn-danger" role="button"><span
+					<h4 class="titulo"><a href="produto.php?id=<?php echo $produto['id_produto']; ?>">
+						<?=substr($produto['nome'], 0, 38); ?>...
+					</a></h4>
+					<a href="produto.php?id=<?php echo $produto['id_produto']; ?>"
+							class="btn btn-primary btn-danger pull-right" role="button"><span
 							class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 							Comprar</a>
-					</p>
+					<p class="preco">R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
 				</div>
 			</div>
 		</div>
