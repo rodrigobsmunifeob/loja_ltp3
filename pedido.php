@@ -34,7 +34,6 @@ include 'header.php';
         $sql = "SELECT * FROM pedidos_tem_produtos INNER JOIN produtos ON produtos.id_produto = pedidos_tem_produtos.produtos_id_produto;";
         $produto = mysqli_query($conexao,$sql);
         foreach ($produto as $prod){
-
          ?>
             <h3>Detalhes de Pedidos</h3>
             <hr>
