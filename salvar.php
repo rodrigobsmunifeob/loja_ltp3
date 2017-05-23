@@ -27,7 +27,7 @@
 	foreach ($_SESSION['carrinho'] as $id => $produto) {
 		
 		$subtotal = $produto['preco'] * $produto['qnt'];
-		$sql = "INSERT INTO `pedidos_tem_produtos` (`pedidos_id_pedido`, `produtos_id_produto`, `preco`, `qnt`, `subtotal`) VALUES ('".$id_pedido."', '".$produto['id_produto']."', '".$produto['preco']."', '".$produto['qnt']."', '".$subtotal."');";
+		$sql = "INSERT INTO `pedidos_tem_produtos` (`pedidos_id_pedido`, `produtos_id_produto`, `preco`, `qnt`, `subtotal`) VALUES ('".$id_pedido."', '".$id."', '".$produto['preco']."', '".$produto['qnt']."', '".$subtotal."');";
 		
 		// Preenche lista de itens do pagseguro
 		$produtos_pagseguro['itemId'.$indice] = $id;
