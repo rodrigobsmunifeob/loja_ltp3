@@ -1,37 +1,22 @@
 <?php include("header.php");
-
     // PROCESSA AÇÕES DO CARRINHO
-
     if (isset($_REQUEST['acao'])) {
-
         $acao = $_REQUEST['acao'];
-
         if ($acao == 'remover') {
-
             unset($_SESSION['carrinho'][$_REQUEST['id']]);
-
         }
-
-
         if ($acao == 'adicionar') {
-
             $produto = mysqli_query($conexao, "SELECT * FROM produtos WHERE id_produto = ".$_REQUEST['id']);
             $produto = mysqli_fetch_array($produto);
-
             $id = $produto['id_produto'];
-
             $_SESSION["carrinho"][$id] = array(
                 "foto" => "assets/produtos/".$id.".png",
                 "nome" => $produto['nome'],
                 "qnt" => $_REQUEST['qnt'],
                 "preco" => $produto['preco']
             );
-
         }
-
     }
-
-
 ?>
 
 
@@ -85,9 +70,7 @@
                 <tbody>
 
                 <?php
-
                 if (isset($_SESSION['carrinho'])) {
-
                     $total_pedido = 0;
                     foreach ($_SESSION['carrinho'] as $id => $produto) {
                         $total_pedido += $produto['preco'] * $produto['qnt'];
@@ -116,11 +99,8 @@
                             <a onclick="return confirm('Tem certeza de que deseja excluir?');" href="carrinho.php?acao=remover&id=<?php echo $id; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
                         </td'>
                     </tr>
-
                     <?php } ?>
-
                     <!-- TOTAL -->
-
                     <tr>
                         <td>
                         </td>
@@ -137,34 +117,19 @@
                         <td>
                         </td>
                     </tr>
-
-
                 <?php } else { ?>
-
                     <tr>
                         <td colspan="6" align="center">Carrinho vazio.</td>
                     </tr>
-
-
                 <?php } ?>
-
-
                 </tbody>
-
             </table>
-
             <?php
-
             if (isset($_SESSION['carrinho'])) {
-
                 ?>
                 <a href="finalizar.php" class="btn btn-success pull-right btn-lg"><i
                             class="glyphicon glyphicon-shopping-cart"></i> Finalizar Compra</a>
             <?php } ?>
-
-
         </div>
-
     </div>
-
 <?php include("footer.php"); ?>
