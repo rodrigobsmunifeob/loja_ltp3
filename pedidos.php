@@ -64,7 +64,7 @@ ini_set('display_errors', 1);
                             R$ <?php echo number_format($pedido['total_pedido'], 2, ",", "."); ?>
                         </td>
                         <td>
-                            <a href="pedido.php?id=<?php echo $pedido["id_pedido"]; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-eye-open"></i></a>
+                            <a href="cli_detalhe_pedido.php?id=<?php echo $pedido["id_pedido"]; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-eye-open"></i></a>
                         </td'>
                     </tr>
                   <?php endwhile; ?>

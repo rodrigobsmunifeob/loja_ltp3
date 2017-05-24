@@ -8,9 +8,20 @@ $nome_categoria = mysqli_fetch_array(mysqli_query($conexao,
 include("header.php");
 ?>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="container">
+
 <h2><?=substr($produto['nome'], 0, 40)?></h2>
+
+
 <hr>
 	<div class="row">
 
@@ -117,6 +128,12 @@ include("header.php");
 					</form>
 					
 					<span class="pull-right">(<?=($produto['estoque'])?> unidades em estoque)</span>
+					<br><br><br>
+					<div style="clear: both;" class="fb-like" 
+						data-href="https://developers.facebook.com/docs/plugins/" 
+						data-layout="button" data-action="like" data-size="large" 
+						data-show-faces="true" data-share="true">
+						</div>
 					
 				</div>
 			</div>

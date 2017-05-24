@@ -7,7 +7,7 @@
         <li <?php if (strpos($_SERVER['REQUEST_URI'], "cli_inicio.php")!==false) echo 'class="active"'; ?>><a href="cli_inicio.php">Início</a></li>
         <li <?php if (strpos($_SERVER['REQUEST_URI'], "cli_pedidos.php")!==false) echo 'class="active"'; ?>><a href="cli_pedidos.php">Meus Pedidos</a></li>
         <li <?php if (strpos($_SERVER['REQUEST_URI'], "cli_cadastro.php")!==false) echo 'class="active"'; ?>><a href="cli_cadastro.php">Meu Cadastro</a></li>
-        <li <?php if (strpos($_SERVER['REQUEST_URI'], "cli_contato.php")!==false) echo 'class="active"'; ?>><a href="contact.php">Contato</a></li>
+        <li <?php if (strpos($_SERVER['REQUEST_URI'], "cli_contato.php")!==false) echo 'class="active"'; ?>><a href="cli_contato.php">Contato</a></li>
         <li <?php if (strpos($_SERVER['REQUEST_URI'], "logout.php")!==false) echo 'class="active"'; ?>><a href="logout.php">Sair</a></li>
     </ul>
 
