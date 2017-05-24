@@ -1,11 +1,13 @@
 <?php
-include("header.php");
+include("conexao.php");
 $produto = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM produtos WHERE id_produto=".$_REQUEST['id']));
 $categorias = mysqli_query ($conexao, 
 	"SELECT * FROM produtos WHERE id_categoria = ".$produto['id_categoria']." AND id_produto <> ".$_REQUEST['id']." ORDER BY RAND() LIMIT 2;");
 $nome_categoria = mysqli_fetch_array(mysqli_query($conexao,
 	"SELECT * FROM categorias WHERE id_categoria = ".$produto['id_categoria']));
+include("header.php");
 ?>
+
 
 <div class="container">
 <h2><?=substr($produto['nome'], 0, 40)?></h2>
