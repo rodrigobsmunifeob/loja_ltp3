@@ -46,18 +46,20 @@ $data['email'] = 'everton.ap.90@gmail.com';
 $data['token'] = '6C6DEEE9B3C6411CBC54517F2B351487';
 $data['currency'] = 'BRL';
 $data['reference'] = $id_pedido;
-$data['senderName'] = $_SESSION["nome"];
+$data['senderName'] = ucwords(strtolower($_SESSION["nome"]));
 $data['senderEmail'] = $_SESSION["email"];
 $data['shippingType'] = '1';
-$data['shippingAddressStreet'] = $_SESSION["end_rua"];
+$data['shippingAddressStreet'] = ucwords(strtolower($_SESSION["end_rua"]));
 $data['shippingAddressNumber'] = '123';
-$data['shippingAddressComplement'] = $_SESSION["end_complemento"];
-$data['shippingAddressDistrict'] = $_SESSION["end_bairro"];
+$data['shippingAddressComplement'] = ucwords(strtolower($_SESSION["end_complemento"]));
+$data['shippingAddressDistrict'] = ucwords(strtolower($_SESSION["end_bairro"]));
 $data['shippingAddressPostalCode'] = '01452002';
-$data['shippingAddressCity'] = $_SESSION["end_cidade"];
+$data['shippingAddressCity'] =ucwords(strtolower($_SESSION  ["end_cidade"]));
 $data['shippingAddressState'] = $_SESSION["end_estado"];
 $data['shippingAddressCountry'] = 'BRA';
-$data['redirectURL'] = 'http://www.sounoob.com.br/paginaDeAgracedimento';
+
+$baseurl = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
+$data['redirectURL'] = $baseurl.'cli_final.php';
 
 // Adiciona produtos no array
 $data = array_merge($data, $produtos_pagseguro);
@@ -88,6 +90,8 @@ if(count($xml -> error) > 0){
 	//header('Location: erro.php?tipo=dadosInvalidos');
 	exit;
 }
+
+
 header('Location: https://pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $xml -> code);
 
 
