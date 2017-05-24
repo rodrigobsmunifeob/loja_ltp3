@@ -2,7 +2,7 @@
 include("header.php");
 $produto = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM produtos WHERE id_produto=".$_REQUEST['id']));
 $categorias = mysqli_query ($conexao, 
-	"SELECT * FROM produtos WHERE id_categoria = ".$produto['id_categoria']." ORDER BY RAND() LIMIT 2;");
+	"SELECT * FROM produtos WHERE id_categoria = ".$produto['id_categoria']." AND id_produto <> ".$_REQUEST['id']." ORDER BY RAND() LIMIT 2;");
 $nome_categoria = mysqli_fetch_array(mysqli_query($conexao,
 	"SELECT * FROM categorias WHERE id_categoria = ".$produto['id_categoria']));
 ?>
@@ -21,7 +21,7 @@ $nome_categoria = mysqli_fetch_array(mysqli_query($conexao,
 			  </div>
 			</div>
 			
-			<div class="panel panel-default">
+			<div class="panel panel-default hidden-xs">
 				<div class="panel-heading"><span class="titulo"><?php echo $nome_categoria["categoria"]; ?></span></div>
 				<div class="panel-body">
 

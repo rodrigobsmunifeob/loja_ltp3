@@ -14,7 +14,10 @@
             $_SESSION = array_merge($_SESSION, $login);
             
             // redireciona, caso tenha parametro next_url
-            if (isset($_POST["next_url"])) header("Location: ".$_POST["next_url"]);
+            if (isset($_POST["next_url"]))
+                header("Location: ".$_POST["next_url"]);
+            else
+                header("Location: cli_inicio.php");
             
         } else {
             $login_incorreto = true;
@@ -101,7 +104,10 @@
           </form>
         <?php } else { ?>
             <div class="pull-right">
-                <p style="color: #fff; margin-top: 6px;">Olá <b><?php echo $_SESSION['nome']; ?></b>, seja bem vindo(a)! &nbsp; <a class="btn btn-success" href="logout.php">Sair</a></p>
+                <p style="color: #fff; margin-top: 8px;"><span style="padding-top:6px; display: block; float:left;">Olá <b><?php echo $_SESSION['nome']; ?></b>, seja bem vindo(a)! &nbsp;</span>
+                    <a class="btn btn-danger pull-right" href="logout.php">Sair</a>
+                    <a class="btn btn-success pull-right" href="cli_inicio.php">Minha Conta</a>
+                </p>
             </div>
         <?php  } ?>
     </div><!--/.nav-collapse -->
