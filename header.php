@@ -25,6 +25,10 @@
     }
 ?>
 
+<?php
+    $baseurl = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,6 +37,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+<?php if (strpos($_SERVER['REQUEST_URI'], "produto.php")!==false): ?>
+	<meta property="og:title" content="<?=htmlspecialchars($produto['nome'])?>">
+	<meta property="og:description" content="<?=substr($produto['descricao'], 0, 200)?>...">
+	<meta property="og:image" content="<?=$baseurl . 'assets/produtos/' . $produto['id_produto']?>.png">
+	<meta property="og:url" content="<?=$baseurl . 'produto.php?id=' . $produto['id_produto']?>">
+<?php endif; ?>    
     <link rel="icon" href="assets/favicon.ico">
 	
 	<!-- Bootstrap core JavaScript
