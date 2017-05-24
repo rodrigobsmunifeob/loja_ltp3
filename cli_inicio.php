@@ -20,9 +20,10 @@
                     ?>
 
                     <div class="col-sm-6 col-md-6">
+                        <a href="cli_detalhe_pedido.php?id=<?php echo $pedido["id_pedido"]; ?>">
                         <button class="btn btn-success btn-lg" type="button">
                             Útimo Pedido: <span class="badge">CÓDIGO <?php echo $pedido["id_pedido"]; ?></span>
-                        </button>
+                        </button></a>
                         <p>Data: <?php echo date("d/m/Y \à\s H:i:s", strtotime($pedido["data"])); ?></p>
                     </div>
                     <div class="col-sm-6 col-md-6">
