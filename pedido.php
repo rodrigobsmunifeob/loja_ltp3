@@ -82,9 +82,6 @@ include 'header.php';
                 WHERE id_pedido = $id_pedido;";
         $pro = mysqli_query($conexao,$sql);
 
-        if (isset($pro)) {
-
-            $total_pedido = 0;
             foreach ($pro as $produto) {
 
                 ?>
@@ -110,7 +107,7 @@ include 'header.php';
                     </td>
                 </tr>
 
-            <?php } ?>
+           
 
             <!-- TOTAL -->
 
